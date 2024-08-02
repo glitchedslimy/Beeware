@@ -1,0 +1,50 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "backend",
+	"projectType": "application",
+	"root": "apps/back",
+	"sourceRoot": "apps/back/src",
+	"tags": [],
+	"targets": {
+		"build": {
+			"executor": "@nx/rspack:rspack",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"target": "node",
+				"main": "apps/back/src/index.ts",
+				"outputPath": "dist/apps/back",
+				"rspackConfig": "./rspack.config.cjs",
+				"optimization": true,
+				"tsConfig": "./tsconfig.json",
+				"command": "pnpm rspack build",
+				"cwd": "apps/back",
+				"generatePackageJson": true
+			},
+			"configurations": {
+				"production": {
+					"optimization": true,
+					"sourceMap": false,
+					"extractLicenses": false
+				}
+			}
+		},
+		"serve": {
+			"executor": "@nx/js:node",
+			"options": {
+				"buildTarget": "backend:build"
+			}
+		},
+		"lint": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": ["pnpm biome lint apps/back/src"]
+			}
+		},
+		"format": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": ["pnpm biome format --write apps/back/src"]
+			}
+		}
+	}
+}

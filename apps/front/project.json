@@ -1,0 +1,42 @@
+{
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"name": "frontend",
+	"projectType": "application",
+	"root": "apps/front",
+	"sourceRoot": "apps/front/src",
+	"tags": [],
+	"targets": {
+		"build": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "pnpm astro check && pnpm astro build",
+				"cwd": "apps/front"
+			}
+		},
+		"serve": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": ["pnpm astro dev"],
+				"cwd": "apps/front"
+			}
+		},
+		"lint": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": ["pnpm biome lint apps/front/src"]
+			}
+		},
+		"format": {
+			"executor": "nx:run-commands",
+			"options": {
+				"commands": ["pnpm biome format --write apps/front/src", "pnpm prettier --write apps/front/src/**/*.astro"]
+			}
+		},
+		"astro": {
+			"executor": "nx:run-commands",
+			"options": {
+				"command": "pnpm astro"
+			}
+		}
+	}
+}
