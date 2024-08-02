@@ -1,0 +1,4 @@
+{
+  "*": "pnpm nx format --uncommitted",
+  "*.ts": ["pnpm lint"]
+}

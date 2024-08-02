@@ -1,33 +1,41 @@
 {
-	"name": "beeware",
-	"version": "0.1.0",
-	"license": "MIT",
-	"scripts": {},
-	"private": true,
-	"type": "module",
-	"dependencies": {
-		"@astrojs/check": "^0.9.1",
-		"@hono/node-server": "^1.12.0",
-		"astro": "^4.13.0",
-		"hono": "^4.5.3",
-		"typescript": "^5.5.4"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.8.3",
-		"@hono/swagger-ui": "^0.4.0",
-		"@hono/zod-openapi": "^0.15.1",
-		"@nx/js": "19.5.6",
-		"@nx/rspack": "^19.2.0",
-		"@rspack/cli": "^0.7.5",
-		"@rspack/core": "^0.7.5",
-		"@types/node": "^20.11.17",
-		"@types/ws": "^8.5.12",
-		"nx": "19.5.6",
-		"prettier": "^3.3.3",
-		"prettier-plugin-astro": "^0.14.1",
-		"tsx": "^4.7.1",
-		"typescript": "^5.5.4",
-		"ws": "^8.18.0",
-		"zod": "^3.23.8"
-	}
+  "name": "beeware",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "husky",
+    "lint": "nx affected --target=lint",
+    "format:check": "nx format:check",
+    "format:write": "nx format:write",
+    "lint:uncommited": "nx affected --target=lint --uncommitted --fix --"
+  },
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@astrojs/check": "^0.9.1",
+    "@hono/node-server": "^1.12.0",
+    "astro": "^4.13.0",
+    "hono": "^4.5.3",
+    "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@hono/swagger-ui": "^0.4.0",
+    "@hono/zod-openapi": "^0.15.1",
+    "@nx/js": "19.5.6",
+    "@nx/rspack": "^19.2.0",
+    "@rspack/cli": "^0.7.5",
+    "@rspack/core": "^0.7.5",
+    "@types/node": "^20.11.17",
+    "@types/ws": "^8.5.12",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.7",
+    "nx": "19.5.6",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "tsx": "^4.7.1",
+    "typescript": "^5.5.4",
+    "ws": "^8.18.0",
+    "zod": "^3.23.8"
+  }
 }
