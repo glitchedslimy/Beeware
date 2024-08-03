@@ -32,13 +32,6 @@ jobs:
       - name: Run tests
         run: pnpm test
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v2.3.0
-        with:
-          projectKey: glitchedslimy_Beeware
-          organization: glitchedslimy
-          token: ${{ secrets.SONAR_TOKEN }}
-
   codeql:
     name: CodeQL Analysis
     runs-on: ubuntu-latest
