@@ -24,7 +24,7 @@ const basicRoute = createRoute({
           }),
         },
       },
-      description: 'Testing files in CI process',
+      description: 'Testing files in CI process with zod',
     },
   },
 });
