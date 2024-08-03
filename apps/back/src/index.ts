@@ -24,7 +24,7 @@ const basicRoute = createRoute({
           }),
         },
       },
-      description: 'Just a test',
+      description: 'Testing files in CI process',
     },
   },
 });
