@@ -33,9 +33,9 @@ jobs:
         run: pnpm test
 
       - name: Label PR
-        use: actions/labeler@v5
+        uses: actions/labeler@v5
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.LABEL_TOKEN }}
 
   codeql:
     name: CodeQL Analysis
