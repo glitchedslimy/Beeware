@@ -12,14 +12,10 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/labeler@v5
+      - name: Label Repository
+        uses: actions/labeler@v5
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           configuration-path: .github/labeler.yml
-  assign-author:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: toshimaru/auto-author-assign@v2.1.1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Auto Author Assign
+        uses: toshimaru/auto-author-assign@v2.1.1
