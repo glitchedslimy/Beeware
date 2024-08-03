@@ -27,7 +27,7 @@ jobs:
         run: pnpm install
 
       - name: Run lint
-        run: pnpm lint
+        run: pnpm lint --base=origin/main --head=HEAD
 
       - name: Run tests
         run: pnpm test
