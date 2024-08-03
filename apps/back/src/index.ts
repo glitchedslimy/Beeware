@@ -24,7 +24,7 @@ const basicRoute = createRoute({
           }),
         },
       },
-      description: 'say hello',
+      description: 'Just a test',
     },
   },
 });
