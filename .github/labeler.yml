@@ -1,0 +1,43 @@
+frontend:
+  - changed-files:
+      - any-glob-to-any-file: front/**
+
+backend:
+  - changed-files:
+      - any-glob-to-any-file: back/**
+
+feature:
+  - head-branch: ['feature/*', 'feat/*', '^feature', '^feat']
+
+fix:
+  - head-branch: ['fix/*', 'hotfix/*', '^fix', '^hotfix']
+
+docs:
+  - head-branch: ['docs/*', 'doc/*', '^docs', '^doc']
+
+chore:
+  - head-branch: ['chore/*', '^chore']
+
+ci:
+  - head-branch: ['ci/*', '^ci']
+
+test:
+  - head-branch: ['test/*', '^test']
+
+refactor:
+  - head-branch: ['refactor/*', '^refactor', 'improvement/*', '^improvement']
+
+style:
+  - head-branch: ['style/*', '^style']
+
+perf:
+  - head-branch: ['perf/*', '^perf', 'performance/*', '^performance']
+
+build:
+  - head-branch: ['build/*', '^build']
+
+revert:
+  - head-branch: ['revert/*', '^revert']
+
+release:
+  - base-branch: 'main'
