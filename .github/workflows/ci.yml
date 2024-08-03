@@ -7,10 +7,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: dev-ci
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Set up node.js
         uses: actions/setup-node@v3
@@ -18,24 +24,14 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
 
-      - name: Install pnpm
-        run: npm install -g pnpm
-
       - name: Install dependencies
         run: pnpm install
 
       - name: Run lint
-        run: pnpm lint
+        run: pnpm lint --base=origin/main --head=HEAD
 
       - name: Run tests
         run: pnpm test
-
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v1.10
-        with:
-          projectKey: glitchedslimy_Beeware
-          organization: glitchedslimy
-          token: ${{ secrets.SONAR_TOKEN }}
 
   codeql:
     name: CodeQL Analysis
@@ -54,11 +50,11 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@v3
         with:
           languages: ${{ matrix.language }}
 
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
+        uses: github/codeql-action/autobuild@v3
         with:
           category: '/language:${{ matrix.language }}'

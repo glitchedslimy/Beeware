@@ -1,0 +1,21 @@
+name: 'PR Labeler and assigner'
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  labeler:
+    permissions:
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label Repository
+        uses: actions/labeler@v5
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: .github/labeler.yml
+      - name: Auto Author Assign
+        uses: toshimaru/auto-author-assign@v2.1.1
